@@ -172,8 +172,6 @@ namespace linq_exercises
             new Customer(){ Name="Sid Brown", Balance=49582.68, Bank="CITI"}
         };
 
-
-
             List<Customer> millionaires = customers.Where(customer =>
             {
                 return customer.Balance >= 1_000_000;
@@ -185,12 +183,6 @@ namespace linq_exercises
                 {
                     Console.WriteLine($"{group.Key} {group.Count()}");
                 });
-
-            // foreach (Customer customer in millionaires)
-            // {
-            //     Console.WriteLine(customer.Bank);
-            // }
-
         }
     }
 }
