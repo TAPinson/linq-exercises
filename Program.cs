@@ -172,7 +172,24 @@ namespace linq_exercises
             new Customer(){ Name="Sid Brown", Balance=49582.68, Bank="CITI"}
         };
 
-            Console.WriteLine(customers.Count);
+
+
+            List<Customer> millionaires = customers.Where(customer =>
+            {
+                return customer.Balance >= 1_000_000;
+            }).ToList();
+
+            millionaires.GroupBy(customer => customer.Bank)
+                .ToList()
+                .ForEach(group =>
+                {
+                    Console.WriteLine($"{group.Key} {group.Count()}");
+                });
+
+            // foreach (Customer customer in millionaires)
+            // {
+            //     Console.WriteLine(customer.Bank);
+            // }
 
         }
     }
